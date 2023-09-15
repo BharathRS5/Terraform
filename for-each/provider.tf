@@ -5,7 +5,15 @@ terraform {
       version = "5.15.0"
     }
   }
+
+  backend "s3" {
+    bucket = "terraform-practicestate"
+    key = "for-each-state"
+    region = "us-east-1"
+    dynamodb_table = "terraform-practicestate-lock"
+  }
 }
+
 
 provider "aws" {
   # Configuration options
