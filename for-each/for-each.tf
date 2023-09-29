@@ -10,7 +10,7 @@ resource "aws_instance" "for-each" {
 }
 
 
-resource "aws_route53_record" "using-for_each"{
+resource "aws_route53_record" "using-for_each" {
     for_each = aws_instance.for-each
     zone_id = var.zone_id
     name    = "${each.key}.${var.domain}"
